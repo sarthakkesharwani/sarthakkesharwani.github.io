@@ -2,181 +2,943 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sarthak Kesharwani | MBBS Student</title>
 
     <meta name="description"
-          content="Official website of Sarthak Kesharwani — MBBS student, medical research enthusiast and student leader.">
+        content="Official website of Sarthak Kesharwani, MBBS student at Jawaharlal Nehru Medical College, DMIHER. Explore his academic journey, leadership, activities and ongoing milestones.">
+
+    <meta name="author" content="Sarthak Kesharwani">
 
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #1f2937;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        header {
-            background: #111827;
-            color: white;
-            padding: 70px 20px;
-            text-align: center;
+        html {
+            scroll-behavior: smooth;
         }
 
-        header h1 {
-            font-size: 42px;
-            margin: 0 0 10px;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #f7f8fa;
+            color: #172033;
+            line-height: 1.6;
         }
 
-        header p {
-            font-size: 18px;
-            margin: 5px 0;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
+
+        /* NAVBAR */
 
         nav {
-            background: white;
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        nav a {
-            margin: 0 12px;
-            text-decoration: none;
-            color: #111827;
-            font-weight: bold;
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+            color: #596273;
+        }
+
+        .nav-links a:hover {
+            color: #172033;
+        }
+
+        /* HERO */
+
+        .hero {
+            max-width: 1150px;
+            margin: auto;
+            padding: 110px 24px 90px;
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: #526581;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: 500;
+            color: #536075;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 18px;
+            color: #697386;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 13px 21px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid #d8dde6;
+            background: white;
+            transition: 0.2s;
+        }
+
+        .button.primary {
+            background: #172033;
+            color: white;
+            border-color: #172033;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* PROFILE PLACEHOLDER */
+
+        .profile-box {
+            width: 280px;
+            height: 330px;
+            margin-left: auto;
+            border-radius: 28px;
+            background: linear-gradient(145deg, #e9edf3, #ffffff);
+            border: 1px solid #dfe4eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #8791a1;
+            font-size: 14px;
+        }
+
+        .profile-box span {
+            padding: 30px;
+        }
+
+        /* GENERAL */
 
         section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            padding: 85px 24px;
+        }
+
+        .section-container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #66758a;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            letter-spacing: -1.5px;
+            margin-bottom: 18px;
+        }
+
+        .section-intro {
+            max-width: 700px;
+            color: #687386;
+            font-size: 17px;
+            margin-bottom: 45px;
+        }
+
+        /* AT A GLANCE */
+
+        .glance {
+            background: white;
+            border-top: 1px solid #e7e9ed;
+            border-bottom: 1px solid #e7e9ed;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
         }
 
         .card {
-            background: white;
+            background: #f8f9fb;
+            border: 1px solid #e3e7ed;
+            border-radius: 16px;
             padding: 25px;
-            margin: 20px 0;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
         }
 
-        h2 {
-            margin-top: 0;
+        .card-number {
+            font-size: 13px;
+            color: #7b8493;
+            margin-bottom: 25px;
         }
+
+        .card h3 {
+            font-size: 19px;
+            margin-bottom: 7px;
+        }
+
+        .card p {
+            color: #727c8c;
+            font-size: 14px;
+        }
+
+        /* STORY */
+
+        .story {
+            background: #f7f8fa;
+        }
+
+        .story-text {
+            max-width: 800px;
+            font-size: 20px;
+            color: #4f596a;
+        }
+
+        .story-text strong {
+            color: #172033;
+        }
+
+        /* TIMELINE */
+
+        .timeline {
+            position: relative;
+            max-width: 850px;
+            margin-top: 45px;
+            padding-left: 35px;
+            border-left: 2px solid #dfe3e9;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 45px 30px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -42px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #172033;
+            border-radius: 50%;
+            border: 4px solid #f7f8fa;
+        }
+
+        .timeline-year {
+            font-size: 13px;
+            font-weight: 700;
+            color: #778294;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-item h3 {
+            margin: 5px 0;
+            font-size: 21px;
+        }
+
+        .timeline-item p {
+            color: #6c7585;
+        }
+
+        /* CURRENT */
+
+        .current {
+            background: #172033;
+            color: white;
+        }
+
+        .current .section-label {
+            color: #aeb9c9;
+        }
+
+        .current .section-intro {
+            color: #c2cad5;
+        }
+
+        .current-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .current-card {
+            padding: 25px;
+            border: 1px solid #354052;
+            border-radius: 16px;
+            background: #202a3b;
+        }
+
+        .current-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .current-card p {
+            color: #bdc6d2;
+            font-size: 14px;
+        }
+
+        /* ACTIVITIES */
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .activity {
+            background: white;
+            padding: 30px;
+            border: 1px solid #e1e5eb;
+            border-radius: 18px;
+        }
+
+        .activity h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .activity p {
+            color: #707989;
+        }
+
+        /* UPDATES */
+
+        .updates {
+            background: white;
+        }
+
+        .update {
+            display: flex;
+            gap: 30px;
+            padding: 25px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .update-date {
+            min-width: 120px;
+            font-size: 13px;
+            color: #7a8493;
+            font-weight: 600;
+        }
+
+        .update h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .update p {
+            color: #727c8c;
+        }
+
+        /* FOOTER */
 
         footer {
-            text-align: center;
-            padding: 30px;
-            background: #111827;
+            background: #101722;
+            color: #c6ccd5;
+            padding: 45px 24px;
+        }
+
+        .footer-container {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        footer strong {
             color: white;
-            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 70px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .profile-box {
+                margin: 0;
+                width: 100%;
+                height: 250px;
+            }
+
+            .cards,
+            .current-box,
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 31px;
+            }
+
+            .update {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Sarthak Kesharwani</h1>
-    <p>MBBS Student</p>
-    <p>Jawaharlal Nehru Medical College, DMIHER</p>
-</header>
+    <!-- NAVIGATION -->
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#mbbs">MBBS Journey</a>
-    <a href="#research">Research</a>
-    <a href="#leadership">Leadership</a>
-    <a href="#timeline">Timeline</a>
-</nav>
+    <nav>
+        <div class="nav-container">
 
-<section id="about">
-    <div class="card">
-        <h2>About</h2>
+            <a href="#home" class="logo">
+                Sarthak Kesharwani
+            </a>
 
-        <p>
-            I am Sarthak Kesharwani, an MBBS student at
-            Jawaharlal Nehru Medical College, Datta Meghe Institute
-            of Higher Education and Research, Wardha.
-        </p>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#journey">Journey</a>
+                <a href="#activities">Activities</a>
+                <a href="#research">Research</a>
+                <a href="#updates">Updates</a>
+            </div>
 
-        <p>
-            My interests include medical education, medical research,
-            public health and student leadership.
-        </p>
-    </div>
-</section>
+        </div>
+    </nav>
 
-<section id="mbbs">
-    <div class="card">
-        <h2>MBBS Journey</h2>
 
-        <p>
-            Currently pursuing MBBS at Jawaharlal Nehru Medical College,
-            DMIHER.
-        </p>
+    <!-- HERO -->
 
-        <p>
-            <strong>Current milestone:</strong>
-            Completed 1st MBBS theory examination.
-        </p>
-    </div>
-</section>
+    <header class="hero" id="home">
 
-<section id="research">
-    <div class="card">
-        <h2>Research</h2>
+        <div>
 
-        <p>
-            Interested in medical research, public health and
-            evidence-based healthcare.
-        </p>
+            <div class="eyebrow">
+                MBBS · JNMC · DMIHER
+            </div>
 
-        <p>
-            Research projects and academic work will be documented here
-            as they progress.
-        </p>
-    </div>
-</section>
+            <h1>
+                Sarthak<br>
+                Kesharwani
+            </h1>
 
-<section id="leadership">
-    <div class="card">
-        <h2>Leadership & Activities</h2>
+            <h2>
+                MBBS Student at Jawaharlal Nehru Medical College
+            </h2>
 
-        <p>
-            Involved in student leadership, event coordination and
-            student council activities.
-        </p>
-    </div>
-</section>
+            <p>
+                An ongoing record of my journey through education,
+                leadership, medicine, research and the experiences
+                that shape me along the way.
+            </p>
 
-<section id="timeline">
-    <div class="card">
-        <h2>Timeline</h2>
+            <div class="buttons">
+                <a href="#journey" class="button primary">
+                    Explore My Journey
+                </a>
 
-        <h3>2024</h3>
-        <p>Started the MBBS journey.</p>
+                <a href="#updates" class="button">
+                    Current Updates
+                </a>
+            </div>
 
-        <h3>2025</h3>
-        <p>Progressed through the first year of MBBS.</p>
+        </div>
 
-        <h3>2026</h3>
-        <p>
-            Continued academic, research and student leadership activities.
-        </p>
 
-        <h3>September 2026</h3>
-        <p>
-            Completed the 1st MBBS theory examination.
-        </p>
-    </div>
-</section>
+        <div class="profile-box">
+            <span>
+                Profile photograph<br>
+                <small>Will be added later</small>
+            </span>
+        </div>
 
-<footer>
-    <p>© 2026 Sarthak Kesharwani</p>
-</footer>
+    </header>
+
+
+    <!-- AT A GLANCE -->
+
+    <section class="glance">
+
+        <div class="section-container">
+
+            <div class="section-label">At a glance</div>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Medicine</h3>
+                    <p>MBBS student at JNMC, DMIHER.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Leadership</h3>
+                    <p>A journey through school-level student leadership.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Research</h3>
+                    <p>Exploring research and academic opportunities.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Activities</h3>
+                    <p>Beyond academics through student activities and events.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT / STORY -->
+
+    <section class="story" id="about">
+
+        <div class="section-container">
+
+            <div class="section-label">The story</div>
+
+            <h2 class="section-title">
+                Where the journey began
+            </h2>
+
+            <p class="story-text">
+                My journey towards medicine has been shaped by
+                <strong>education, leadership and family inspiration.</strong>
+                Growing up around an educational institution started
+                by my father gave me an early connection with learning
+                and responsibility. Over the years, that environment
+                gradually became my own journey — from school leadership
+                to the pursuit of medicine.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOURNEY -->
+
+    <section id="journey">
+
+        <div class="section-container">
+
+            <div class="section-label">My journey</div>
+
+            <h2 class="section-title">
+                From school to medicine
+            </h2>
+
+            <p class="section-intro">
+                The path has not been completely linear. Every stage
+                has contributed something different to the person
+                I am becoming.
+            </p>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2002</div>
+                    <h3>Mona Coaching Institute</h3>
+                    <p>
+                        My father started Mona Coaching Institute,
+                        which later grew into Mona School, Sarangarh.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2009</div>
+                    <h3>Joining Mona School</h3>
+                    <p>
+                        Mona transitioned towards CBSE education,
+                        and I joined the school.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">School Years</div>
+                    <h3>Leadership</h3>
+                    <p>
+                        From participating in captain elections
+                        to taking on formal student-council
+                        responsibilities.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Class 10</div>
+                    <h3>Deputy Cultural Head</h3>
+                    <p>
+                        Scored 86% and took on my first formal
+                        student-council position.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Class 11</div>
+                    <h3>Deputy Head Boy</h3>
+                    <p>
+                        Continued developing leadership and
+                        organisational responsibilities.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Class 12</div>
+                    <h3>Head Boy</h3>
+                    <p>
+                        Scored 87.4% and served as Head Boy.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Farewell</div>
+                    <h3>Student of the Year</h3>
+                    <p>
+                        Received the Student of the Year award
+                        at farewell.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">NEET</div>
+                    <h3>The road to medical college</h3>
+                    <p>
+                        After an initial NEET attempt, I took a
+                        drop year and prepared at Allen, Raipur,
+                        before appearing again in NEET 2025.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <h3>JNMC</h3>
+                    <p>
+                        Through All India counselling, I began
+                        my MBBS journey at Jawaharlal Nehru
+                        Medical College, DMIHER.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <h3>1st MBBS</h3>
+                    <p>
+                        Completed the first MBBS theory examination
+                        and continued exploring academic and
+                        extracurricular opportunities.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CURRENT -->
+
+    <section class="current">
+
+        <div class="section-container">
+
+            <div class="section-label">Current chapter</div>
+
+            <h2 class="section-title">
+                Currently
+            </h2>
+
+            <p class="section-intro">
+                This section will evolve as my medical-school journey
+                continues.
+            </p>
+
+
+            <div class="current-box">
+
+                <div class="current-card">
+                    <h3>🩺 MBBS</h3>
+                    <p>
+                        Pursuing MBBS at JNMC, DMIHER.
+                    </p>
+                </div>
+
+                <div class="current-card">
+                    <h3>📚 Academics</h3>
+                    <p>
+                        Completed 1st MBBS theory examinations
+                        in 2026.
+                    </p>
+                </div>
+
+                <div class="current-card">
+                    <h3>🌱 Growing</h3>
+                    <p>
+                        Building experience through academics,
+                        activities, leadership and research exposure.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACTIVITIES -->
+
+    <section id="activities">
+
+        <div class="section-container">
+
+            <div class="section-label">Beyond academics</div>
+
+            <h2 class="section-title">
+                Activities & Leadership
+            </h2>
+
+            <p class="section-intro">
+                Medicine is more than textbooks. I continue to
+                participate in activities that allow me to learn,
+                collaborate and contribute outside the classroom.
+            </p>
+
+
+            <div class="activity-grid">
+
+                <div class="activity">
+                    <h3>Student Leadership</h3>
+                    <p>
+                        School-level leadership roles and
+                        student-council responsibilities.
+                    </p>
+                </div>
+
+                <div class="activity">
+                    <h3>Dhwani</h3>
+                    <p>
+                        Participation in student cultural activities
+                        during medical college.
+                    </p>
+                </div>
+
+                <div class="activity">
+                    <h3>BioClues</h3>
+                    <p>
+                        Academic and student engagement within
+                        medical college.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESEARCH -->
+
+    <section id="research" class="story">
+
+        <div class="section-container">
+
+            <div class="section-label">Academic exploration</div>
+
+            <h2 class="section-title">
+                Research
+            </h2>
+
+            <p class="section-intro">
+                An evolving section documenting my exposure to
+                medical research and academic projects.
+            </p>
+
+
+            <div class="activity">
+                <h3>ICMR-STS 2026</h3>
+
+                <p>
+                    Submitted an undergraduate research proposal
+                    under the ICMR-STS programme. The proposal
+                    was not selected.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- UPDATES -->
+
+    <section class="updates" id="updates">
+
+        <div class="section-container">
+
+            <div class="section-label">Latest</div>
+
+            <h2 class="section-title">
+                Updates
+            </h2>
+
+            <p class="section-intro">
+                This is where the website will become a living
+                record of my journey.
+            </p>
+
+
+            <div class="update">
+
+                <div class="update-date">
+                    September 2026
+                </div>
+
+                <div>
+                    <h3>Completed 1st MBBS Theory Examination</h3>
+
+                    <p>
+                        Completed the first-year MBBS theory
+                        examination and moved into the next
+                        phase of medical education.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="update">
+
+                <div class="update-date">
+                    2026
+                </div>
+
+                <div>
+                    <h3>ICMR-STS Proposal</h3>
+
+                    <p>
+                        Submitted an undergraduate research
+                        proposal as part of exploring medical
+                        research opportunities.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <strong>Sarthak Kesharwani</strong>
+
+                <p>
+                    MBBS Student · JNMC · DMIHER
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    An ongoing record of the journey.
+                </p>
+            </div>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>
